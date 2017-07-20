@@ -25,7 +25,7 @@ class App extends React.Component {
       <div>
         <nav className="navbar">
           <div className="col-md-6 offset-md-3">
-            <div><h5><em>search</em> <Search updateVideoList={this.updateVideoList}/></h5></div>
+            <div><h5><em></em> <Search updateVideoList={this.updateVideoList}/></h5></div>
           </div>
         </nav>
         <div className="row">
