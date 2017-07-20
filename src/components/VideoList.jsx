@@ -7,14 +7,14 @@
 //     super(props);
 //   } 
 //   render() {
-//     return (<div><h5><em>{this.props.title}</em> {this.props.description}</h5></div>);
+//     return (   {this.props.title}</em> {this.props.description}</h5></div>);
 //   } 
 // }
 var VideoList = (props) => (
   
   <div className="video-list">
     {props.videos.map(video =>
-      <VideoListEntry title={video.snippet.title} description={video.snippet.description} thumbnail={video.snippet.thumbnails.default.url}/>
+      <VideoListEntry video={video} onClick={props.onClick} />
     )}
   </div>
 );
