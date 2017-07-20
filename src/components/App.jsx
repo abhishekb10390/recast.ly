@@ -2,21 +2,30 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentVideo: window.exampleVideoData[0]
+      currentVideo: window.exampleVideoData[0],
+      allVideos: window.exampleVideoData,
     };
     this.toggleClick = this.toggleClick.bind(this);
+    this.updateVideoList = this.updateVideoList.bind(this);
   }
   toggleClick(currentVideo) {
     this.setState({
       currentVideo: currentVideo
     });    
-  } 
+  }
+  updateVideoList(data) {
+    this.setState ({
+      allVideos: data.items, 
+      currentVideo: data.items[0]
+    });      
+  }     
+  
   render() {
     return (
       <div>
         <nav className="navbar">
           <div className="col-md-6 offset-md-3">
-            <div><h5><em>search</em> <Search/></h5></div>
+            <div><h5><em>search</em> <Search updateVideoList={this.updateVideoList}/></h5></div>
           </div>
         </nav>
         <div className="row">
@@ -24,7 +33,7 @@ class App extends React.Component {
             <div><h5> <VideoPlayer video={this.state.currentVideo}/></h5></div>
           </div>
           <div className="col-md-5">
-            <div><h5> <VideoList videos={window.exampleVideoData} onClick={this.toggleClick} /></h5></div>
+            <div><h5> <VideoList videos={this.state.allVideos} onClick={this.toggleClick} /></h5></div>
           </div>
         </div>
       </div>  
