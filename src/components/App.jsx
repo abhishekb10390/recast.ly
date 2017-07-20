@@ -5,7 +5,6 @@ class App extends React.Component {
       currentVideo: window.exampleVideoData[0]
     };
     this.toggleClick = this.toggleClick.bind(this);
-
   }
   toggleClick(currentVideo) {
     this.setState({
