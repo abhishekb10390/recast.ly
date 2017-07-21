@@ -11,14 +11,13 @@ class Search extends React.Component {
     options.query = query;
     options.max = 5;
     options.key = window.YOUTUBE_API_KEY;
-  
     searchYouTube(options, this.props.updateVideoList);
   }
-
+  
   render() {
     return (
       <div className="search-bar form-inline">
-        <input className="form-control" id="input" type="text" />
+        <input className="form-control" id="input" type="text" onChange={(e)=> { this.props.handleSearch(e.target.value); }}/>
         <button className="btn hidden-sm-down" onClick={ this.handleUserInput } >
           <span className="glyphicon glyphicon-search"></span>
         </button>

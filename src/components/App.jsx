@@ -20,10 +20,12 @@ class App extends React.Component {
     });      
   } 
   componentDidMount() {
+    this.selector('manchester');
+  }
     
-    //  var query = document.getElementById('input').value;
+  selector(string) {
     var options = {};
-    options.query = 'manchester';
+    options.query = string;
     options.max = 5;
     options.key = window.YOUTUBE_API_KEY; 
     this.props.searchYouTube(options, this.updateVideoList); 
@@ -34,7 +36,7 @@ class App extends React.Component {
       <div>
         <nav className="navbar">
           <div className="col-md-6 offset-md-3">
-            <div><h5><em></em> <Search updateVideoList={this.updateVideoList}/></h5></div>
+            <div><h5><em></em> <Search handleSearch={this.selector.bind(this)} /></h5></div>
           </div>
         </nav>
         <div className="row">
