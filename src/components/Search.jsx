@@ -5,10 +5,13 @@ class Search extends React.Component {
   }
 
   handleUserInput(props) {
-    console.log( 'click' );
+    
     var query = document.getElementById('input').value;
     var options = {};
     options.query = query;
+    options.max = 5;
+    options.key = window.YOUTUBE_API_KEY;
+  
     searchYouTube(options, this.props.updateVideoList);
   }
 

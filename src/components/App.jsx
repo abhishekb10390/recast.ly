@@ -18,7 +18,16 @@ class App extends React.Component {
       allVideos: data.items, 
       currentVideo: data.items[0]
     });      
-  }     
+  } 
+  componentDidMount() {
+    
+    //  var query = document.getElementById('input').value;
+    var options = {};
+    options.query = 'manchester';
+    options.max = 5;
+    options.key = window.YOUTUBE_API_KEY; 
+    this.props.searchYouTube(options, this.updateVideoList); 
+  }    
   
   render() {
     return (
